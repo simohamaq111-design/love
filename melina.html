@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine's Day!</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #fff0f5;
+            color: #8b0000;
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 20px;
+            text-align: center;
+        }
+        
+        header {
+            padding: 40px 20px;
+            background: linear-gradient(135deg, #ffafcc 0%, #ffc8dd 100%);
+            border-radius: 0 0 50px 50px;
+            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.2);
+            margin-bottom: 40px;
+        }
+        
+        h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4rem;
+            color: #c9184a;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+        }
+        
+        h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.5rem;
+            color: #ff4d6d;
+            margin: 20px 0;
+        }
+        
+        .heart {
+            color: #ff4d6d;
+            font-size: 2rem;
+            animation: heartbeat 1.5s infinite;
+            display: inline-block;
+        }
+        
+        @keyframes heartbeat {
+            0% { transform: scale(1); }
+            5% { transform: scale(1.2); }
+            10% { transform: scale(1.1); }
+            15% { transform: scale(1.3); }
+            50% { transform: scale(1); }
+            100% { transform: scale(1); }
+        }
+        
+        .message-box {
+            background-color: white;
+            border-radius: 20px;
+            padding: 30px;
+            margin: 30px 0;
+            box-shadow: 0 10px 30px rgba(255, 105, 180, 0.15);
+            text-align: left;
+            border-left: 8px solid #ffafcc;
+        }
+        
+        .message-box p {
+            font-size: 1.2rem;
+            margin-bottom: 20px;
+            line-height: 1.8;
+        }
+        
+        .photo-frame {
+            width: 250px;
+            height: 250px;
+            margin: 30px auto;
+            border: 15px solid #ffc8dd;
+            border-radius: 50%;
+            overflow: hidden;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+            background-color: #f8f9fa;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .photo-placeholder {
+            width: 100%;
+            height: 100%;
+            background-color: #ffebf3;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.2rem;
+            color: #ff4d6d;
+        }
+        
+        .photo-placeholder i {
+            font-size: 3rem;
+            margin-bottom: 10px;
+        }
+        
+        .memories {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+            margin: 40px 0;
+        }
+        
+        .memory {
+            width: 180px;
+            background-color: white;
+            border-radius: 15px;
+            padding: 20px;
+            box-shadow: 0 5px 15px rgba(255, 105, 180, 0.15);
+            transition: transform 0.3s;
+        }
+        
+        .memory:hover {
+            transform: translateY(-10px);
+        }
+        
+        .memory h3 {
+            color: #ff4d6d;
+            margin-bottom: 10px;
+            font-size: 1.3rem;
+        }
+        
+        footer {
+            margin-top: 50px;
+            padding: 30px;
+            background: linear-gradient(135deg, #ffc8dd 0%, #ffafcc 100%);
+            border-radius: 50px 50px 0 0;
+            color: #8b0000;
+            font-weight: 600;
+        }
+        
+        .heart-container {
+            font-size: 2rem;
+            margin: 20px 0;
+            letter-spacing: 10px;
+        }
+        
+        button {
+            background-color: #ff4d6d;
+            color: white;
+            border: none;
+            padding: 15px 40px;
+            font-size: 1.2rem;
+            border-radius: 50px;
+            cursor: pointer;
+            margin-top: 20px;
+            transition: all 0.3s;
+            font-family: 'Poppins', sans-serif;
+            font-weight: 600;
+            box-shadow: 0 5px 15px rgba(255, 77, 109, 0.3);
+        }
+        
+        button:hover {
+            background-color: #c9184a;
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(255, 77, 109, 0.4);
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 3rem;
+            }
+            
+            h2 {
+                font-size: 2rem;
+            }
+            
+            .photo-frame {
+                width: 200px;
+                height: 200px;
+            }
+            
+            .message-box {
+                padding: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <div class="container">
+            <h1>Happy Valentine's Day, My Love!</h1>
+            <div class="heart">❤️</div>
+            <p style="font-size: 1.5rem; margin-top: 10px;">A special website just for you</p>
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="photo-frame">
+            <div class="photo-placeholder">
+                <div>❤️</div>
+                <p>Our Photo</p>
+                <p>(Replace with your photo)</p>
+            </div>
+        </div>
+        
+        <div class="message-box">
+            <h2>My Dearest [Girlfriend's Name],</h2>
+            <p>On this special day, I wanted to create something just for you to express how much you mean to me. Every moment with you is like a page from the most beautiful love story.</p>
+            <p>Your smile lights up my world, your laughter is my favorite melody, and your love is the greatest gift I've ever received. I cherish every second we spend together and look forward to countless more memories with you.</p>
+            <p>You are my sunshine on cloudy days, my comfort in difficult times, and my joy in every moment. I feel so lucky to have you in my life.</p>
+            <p>Happy Valentine's Day, my love. May this day be as wonderful as you are.</p>
+            <p style="text-align: right; font-style: italic; margin-top: 30px;">Forever yours,<br>[Your Name]</p>
+        </div>
+        
+        <h2>Sweet Memories</h2>
+        <div class="memories">
+            <div class="memory">
+                <h3>Our First Date</h3>
+                <p>The day I knew you were special</p>
+            </div>
+            <div class="memory">
+                <h3>Your Laughter</h3>
+                <p>My favorite sound in the world</p>
+            </div>
+            <div class="memory">
+                <h3>Your Kindness</h3>
+                <p>What makes you so amazing</p>
+            </div>
+            <div class="memory">
+                <h3>Our Future</h3>
+                <p>So many adventures await us</p>
+            </div>
+        </div>
+        
+        <div class="heart-container">
+            <span class="heart">❤️</span>
+            <span class="heart">❤️</span>
+            <span class="heart">❤️</span>
+            <span class="heart">❤️</span>
+            <span class="heart">❤️</span>
+        </div>
+        
+        <button id="surpriseBtn">Click for a Surprise!</button>
+    </div>
+    
+    <footer>
+        <div class="container">
+            <p>Made with <span class="heart">❤️</span> for the most amazing person in my life</p>
+            <p>Happy Valentine's Day 2024</p>
+        </div>
+    </footer>
+    
+    <script>
+        // إضافة تفاعل بسيط للزر
+        document.getElementById('surpriseBtn').addEventListener('click', function() {
+            // تغيير نص الزر مؤقتاً
+            const originalText = this.textContent;
+            this.textContent = "I love you so much! ❤️";
+            this.style.backgroundColor = "#c9184a";
+            
+            // إنشاء قلوب متحركة
+            for (let i = 0; i < 15; i++) {
+                createFloatingHeart();
+            }
+            
+            // العودة إلى النص الأصلي بعد 3 ثوان
+            setTimeout(() => {
+                this.textContent = originalText;
+                this.style.backgroundColor = "#ff4d6d";
+            }, 3000);
+        });
+        
+        // دالة لإنشاء قلوب متحركة
+        function createFloatingHeart() {
+            const heart = document.createElement('div');
+            heart.innerHTML = '❤️';
+            heart.style.position = 'fixed';
+            heart.style.fontSize = Math.random() * 30 + 20 + 'px';
+            heart.style.left = Math.random() * window.innerWidth + 'px';
+            heart.style.top = window.innerHeight + 'px';
+            heart.style.opacity = '0.9';
+            heart.style.zIndex = '9999';
+            heart.style.pointerEvents = 'none';
+            heart.style.transition = 'transform 1s, top 1.5s, opacity 1.5s';
+            
+            document.body.appendChild(heart);
+            
+            // تحريك القلب
+            setTimeout(() => {
+                heart.style.top = '-50px';
+                heart.style.transform = 'rotate(' + Math.random() * 360 + 'deg)';
+                heart.style.opacity = '0';
+            }, 10);
+            
+            // إزالة القلب من الذاكرة بعد انتهاء الحركة
+            setTimeout(() => {
+                document.body.removeChild(heart);
+            }, 2000);
+        }
+        
+        // إضافة قلوب متحركة بشكل عشوائي
+        setInterval(() => {
+            if (Math.random() > 0.7) {
+                createFloatingHeart();
+            }
+        }, 1000);
+    </script>
+</body>
+</html>
