@@ -1,0 +1,701 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Our Love Story</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Playfair+Display:wght@400;700&family=Roboto:wght@300;400&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #fef6f9;
+            color: #333;
+            line-height: 1.6;
+            overflow-x: hidden;
+            background-image: 
+                radial-gradient(#ffd1dc 1px, transparent 1px),
+                radial-gradient(#ffd1dc 1px, transparent 1px);
+            background-size: 40px 40px;
+            background-position: 0 0, 20px 20px;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        /* Header & Title Section */
+        .title-section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(135deg, rgba(255,209,220,0.9) 0%, rgba(255,182,193,0.9) 100%);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .title-section h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 5rem;
+            color: #b03060;
+            margin-bottom: 20px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+            z-index: 2;
+        }
+        
+        .title-section p {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: #7a1c4a;
+            max-width: 800px;
+            margin-bottom: 40px;
+            z-index: 2;
+        }
+        
+        .floating-hearts {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        .heart {
+            position: absolute;
+            color: rgba(255, 105, 180, 0.5);
+            font-size: 24px;
+            animation: float 8s linear infinite;
+        }
+        
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) rotate(0deg);
+                opacity: 0;
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                transform: translateY(-100px) rotate(360deg);
+                opacity: 0;
+            }
+        }
+        
+        /* Timeline Section */
+        .timeline-section {
+            padding: 100px 0;
+            background-color: rgba(255, 255, 255, 0.9);
+        }
+        
+        .section-title {
+            font-family: 'Dancing Script', cursive;
+            font-size: 3.5rem;
+            text-align: center;
+            color: #b03060;
+            margin-bottom: 70px;
+        }
+        
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto 80px;
+            padding: 20px;
+        }
+        
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 6px;
+            height: 100%;
+            background-color: #ffb6c1;
+            border-radius: 10px;
+        }
+        
+        .event {
+            background-color: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            width: 45%;
+            position: relative;
+            margin-bottom: 40px;
+            transition: transform 0.3s ease;
+            opacity: 0;
+            transform: translateY(20px);
+        }
+        
+        .event:hover {
+            transform: translateY(-10px);
+        }
+        
+        .event h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.8rem;
+            color: #b03060;
+            margin-bottom: 10px;
+            display: flex;
+            align-items: center;
+        }
+        
+        .event h3 i {
+            margin-right: 10px;
+        }
+        
+        .event p {
+            font-size: 1.1rem;
+            color: #666;
+            line-height: 1.6;
+        }
+        
+        .event.right {
+            margin-left: 55%;
+        }
+        
+        .event.left {
+            margin-left: 0;
+        }
+        
+        .event::before {
+            content: '';
+            position: absolute;
+            width: 20px;
+            height: 20px;
+            background-color: #ff69b4;
+            border-radius: 50%;
+            border: 4px solid white;
+            box-shadow: 0 0 0 4px #ffb6c1;
+            top: 30px;
+        }
+        
+        .event.right::before {
+            left: -15px;
+            transform: translateX(-50%);
+        }
+        
+        .event.left::before {
+            right: -15px;
+            transform: translateX(50%);
+        }
+        
+        /* Images Row */
+        .images-row {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+            gap: 30px;
+            margin-top: 60px;
+        }
+        
+        .image-card {
+            background-color: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            width: 300px;
+            transition: transform 0.4s ease, box-shadow 0.4s ease;
+            opacity: 0;
+            transform: translateY(30px);
+        }
+        
+        .image-card:hover {
+            transform: translateY(-15px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.15);
+        }
+        
+        .image-card img {
+            width: 100%;
+            height: 500px;
+            object-fit: cover;
+            display: block;
+        }
+        
+        .image-card h3 {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.3rem;
+            color: #b03060;
+            padding: 15px;
+            text-align: center;
+            background-color: #fff9fb;
+        }
+        
+        /* Quotes Section */
+        .quotes-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, rgba(255,182,193,0.9) 0%, rgba(255,209,220,0.9) 100%);
+        }
+        
+        .quote-container {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+            min-height: 300px;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .quote {
+            font-family: 'Playfair Display', serif;
+            font-size: 2.2rem;
+            color: #7a1c4a;
+            margin-bottom: 30px;
+            padding: 0 20px;
+            opacity: 0;
+            transform: translateY(20px);
+            transition: all 1s ease;
+        }
+        
+        .quote.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        
+        .quote-author {
+            font-family: 'Dancing Script', cursive;
+            font-size: 1.8rem;
+            color: #b03060;
+        }
+        
+        .quote-nav {
+            display: flex;
+            justify-content: center;
+            margin-top: 40px;
+        }
+        
+        .quote-dot {
+            width: 12px;
+            height: 12px;
+            background-color: rgba(176, 48, 96, 0.3);
+            border-radius: 50%;
+            margin: 0 8px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+        
+        .quote-dot.active {
+            background-color: #b03060;
+            transform: scale(1.3);
+        }
+        
+        /* Final Section */
+        .final-section {
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 40px 20px;
+            background-color: rgba(255, 255, 255, 0.95);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .love-message {
+            font-family: 'Dancing Script', cursive;
+            font-size: 5rem;
+            color: #b03060;
+            margin-bottom: 40px;
+            z-index: 2;
+        }
+        
+        .heart-container {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            margin: 40px 0;
+            z-index: 2;
+        }
+        
+        .big-heart {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 200px;
+            color: #ff69b4;
+            animation: heartbeat 1.5s infinite;
+        }
+        
+        @keyframes heartbeat {
+            0% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+            5% {
+                transform: translate(-50%, -50%) scale(1.1);
+            }
+            10% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+            15% {
+                transform: translate(-50%, -50%) scale(1.15);
+            }
+            20% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+            100% {
+                transform: translate(-50%, -50%) scale(1);
+            }
+        }
+        
+        .final-note {
+            font-family: 'Playfair Display', serif;
+            font-size: 1.5rem;
+            color: #7a1c4a;
+            max-width: 800px;
+            margin-top: 40px;
+            z-index: 2;
+        }
+        
+        .floating-hearts-final {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+            z-index: 1;
+        }
+        
+        /* Responsive Design */
+        @media (max-width: 992px) {
+            .title-section h1 {
+                font-size: 4rem;
+            }
+            
+            .love-message {
+                font-size: 4rem;
+            }
+            
+            .timeline::before {
+                left: 30px;
+            }
+            
+            .event {
+                width: calc(100% - 80px);
+                margin-left: 80px !important;
+            }
+            
+            .event.right::before,
+            .event.left::before {
+                left: -55px;
+                transform: translateX(0);
+            }
+            
+            .images-row {
+                justify-content: center;
+            }
+        }
+        
+        @media (max-width: 768px) {
+            .title-section h1 {
+                font-size: 3.2rem;
+            }
+            
+            .title-section p {
+                font-size: 1.2rem;
+            }
+            
+            .section-title {
+                font-size: 2.8rem;
+            }
+            
+            .quote {
+                font-size: 1.8rem;
+            }
+            
+            .love-message {
+                font-size: 3.2rem;
+            }
+            
+            .big-heart {
+                font-size: 150px;
+            }
+            
+            .heart-container {
+                width: 150px;
+                height: 150px;
+            }
+            
+            .event h3 {
+                font-size: 1.5rem;
+            }
+            
+            .event p {
+                font-size: 1rem;
+            }
+            
+            .image-card {
+                width: 250px;
+            }
+        }
+        
+        @media (max-width: 576px) {
+            .title-section h1 {
+                font-size: 2.5rem;
+            }
+            
+            .section-title {
+                font-size: 2.2rem;
+            }
+            
+            .quote {
+                font-size: 1.5rem;
+            }
+            
+            .love-message {
+                font-size: 2.5rem;
+            }
+            
+            .big-heart {
+                font-size: 120px;
+            }
+            
+            .heart-container {
+                width: 120px;
+                height: 120px;
+            }
+            
+            .event {
+                padding: 15px;
+                width: calc(100% - 60px);
+                margin-left: 60px !important;
+            }
+            
+            .event h3 {
+                font-size: 1.3rem;
+            }
+            
+            .image-card {
+                width: 100%;
+                max-width: 300px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Section 1: Title Section -->
+    <section class="title-section" id="title">
+        <div class="container">
+            <h1>Our Love Story</h1>
+            <p>Every love story is beautiful, but ours is my favorite. This is the journey of how two hearts found each other and created a world of their own.</p>
+            <div class="floating-hearts" id="floating-hearts"></div>
+        </div>
+    </section>
+    
+    <!-- Section 2: Timeline of Special Moments -->
+    <section class="timeline-section" id="timeline">
+        <div class="container">
+            <h2 class="section-title">Our Journey Together</h2>
+            
+            <div class="timeline">
+                <div class="event right">
+                    <h3><i class="fas fa-rose"></i> fin tla9ina 🌹</h3>
+                    <p>
+                        11/10/2024<br>
+                        squad free fire, mn dak nhar o ana knhma9 3lik.
+                    </p>
+                </div>
+
+                <div class="event left">
+                    <h3><i class="fas fa-comments"></i> awl appel 💬</h3>
+                    <p>
+                        kant ferhan b hedra m3ak kter mn ay personne akhor
+                    </p>
+                </div>
+
+                <div class="event right">
+                    <h3><i class="fas fa-heart"></i> les souvenirs</h3>
+                    <p>
+                        Tant de beaux moments partagés, tant de rires et d'émotions. Chaque souvenir avec toi est un trésor dans mon cœur.
+                    </p>
+                </div>
+            </div>
+            
+            <div class="images-row">
+                <div class="image-card">
+                    <h3>11/03/2025</h3>
+                    <img src="apel.jpeg" alt="Our first call">
+                </div>
+
+                <div class="image-card">
+                    <h3>23/07/2025</h3>
+                    <img src="message.jpeg" alt="Sweet messages">
+                </div>
+
+                <div class="image-card">
+                    <h3>14/09/2025</h3>
+                    <img src="cadou.jpeg" alt="Special gift">
+                </div>
+            </div>
+        </div>
+    </section>
+    
+    <!-- Section 3: Romantic Quotes -->
+    
+    <!-- Section 4: Final Love Message -->
+    <section class="final-section" id="final">
+        <div class="container">
+            <div class="love-message">I Love You</div>
+            <div class="heart-container">
+                <div class="big-heart">❤️</div>
+            </div>
+            <p class="final-note">To my dearest love, every moment with you is a treasure. You've filled my life with joy, laughter, and a love I never knew was possible. Here's to forever with you, my love.</p>
+            <div class="floating-hearts-final" id="floating-hearts-final"></div>
+        </div>
+    </section>
+
+    <script>
+        // Create floating hearts for title section
+        function createFloatingHearts(containerId, count) {
+            const container = document.getElementById(containerId);
+            
+            for (let i = 0; i < count; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.innerHTML = '❤';
+                
+                // Random position
+                const left = Math.random() * 100;
+                const delay = Math.random() * 8;
+                const duration = 8 + Math.random() * 5;
+                const size = 20 + Math.random() * 30;
+                
+                heart.style.left = `${left}%`;
+                heart.style.animationDelay = `${delay}s`;
+                heart.style.animationDuration = `${duration}s`;
+                heart.style.fontSize = `${size}px`;
+                
+                container.appendChild(heart);
+            }
+        }
+        
+        // Initialize floating hearts
+        document.addEventListener('DOMContentLoaded', function() {
+            createFloatingHearts('floating-hearts', 20);
+            createFloatingHearts('floating-hearts-final', 15);
+            
+            // Quote rotation functionality
+            const quotes = document.querySelectorAll('.quote');
+            const dots = document.querySelectorAll('.quote-dot');
+            let currentQuoteIndex = 0;
+            
+            // Function to show a specific quote
+            function showQuote(index) {
+                // Hide all quotes
+                quotes.forEach(quote => {
+                    quote.classList.remove('active');
+                });
+                
+                // Remove active class from all dots
+                dots.forEach(dot => {
+                    dot.classList.remove('active');
+                });
+                
+                // Show selected quote and activate corresponding dot
+                quotes[index].classList.add('active');
+                dots[index].classList.add('active');
+                currentQuoteIndex = index;
+            }
+            
+            // Add click events to dots
+            dots.forEach((dot, index) => {
+                dot.addEventListener('click', () => {
+                    showQuote(index);
+                });
+            });
+            
+            // Auto-rotate quotes every 5 seconds
+            setInterval(() => {
+                currentQuoteIndex = (currentQuoteIndex + 1) % quotes.length;
+                showQuote(currentQuoteIndex);
+            }, 5000);
+            
+            // Animation for timeline events and image cards
+            const timelineEvents = document.querySelectorAll('.event');
+            const imageCards = document.querySelectorAll('.image-card');
+            
+            // Simple scroll animation for timeline events and image cards
+            function checkScroll() {
+                timelineEvents.forEach(item => {
+                    const itemTop = item.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (itemTop < windowHeight * 0.85) {
+                        item.style.opacity = '1';
+                        item.style.transform = 'translateY(0)';
+                    }
+                });
+                
+                imageCards.forEach(item => {
+                    const itemTop = item.getBoundingClientRect().top;
+                    const windowHeight = window.innerHeight;
+                    
+                    if (itemTop < windowHeight * 0.85) {
+                        item.style.opacity = '1';
+                        item.style.transform = 'translateY(0)';
+                    }
+                });
+            }
+            
+            // Initially set opacity for animation
+            timelineEvents.forEach(item => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(20px)';
+                item.style.transition = 'opacity 0.8s ease, transform 0.8s ease';
+            });
+            
+            imageCards.forEach(item => {
+                item.style.opacity = '0';
+                item.style.transform = 'translateY(30px)';
+                item.style.transition = 'opacity 0.8s ease 0.2s, transform 0.8s ease 0.2s';
+            });
+            
+            // Check scroll on load and scroll
+            window.addEventListener('load', checkScroll);
+            window.addEventListener('scroll', checkScroll);
+            
+            // Smooth scrolling for navigation
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function(e) {
+                    e.preventDefault();
+                    
+                    const targetId = this.getAttribute('href');
+                    if (targetId === '#') return;
+                    
+                    const targetElement = document.querySelector(targetId);
+                    if (targetElement) {
+                        window.scrollTo({
+                            top: targetElement.offsetTop - 20,
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+            
+            // Initial check for animations
+            setTimeout(checkScroll, 300);
+        });
+    </script>
+</body>
+</html>
