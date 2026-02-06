@@ -1,0 +1,664 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Valentine's Day Message</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Playfair+Display:wght@400;700&display=swap">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Playfair Display', serif;
+            background: linear-gradient(135deg, #f9e3e3 0%, #f5d0d0 100%);
+            color: #8a1a1a;
+            min-height: 100vh;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            position: relative;
+            z-index: 10;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            animation: fadeIn 2s ease-out;
+        }
+
+        .header h1 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 4rem;
+            color: #d32f2f;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+            margin-bottom: 10px;
+        }
+
+        .header p {
+            font-size: 1.2rem;
+            color: #b71c1c;
+            font-style: italic;
+        }
+
+        .message-container {
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 800px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(181, 28, 28, 0.15);
+            margin-bottom: 40px;
+            animation: fadeInUp 2s ease-out;
+            position: relative;
+            overflow: hidden;
+            border: 2px solid #ffcdd2;
+        }
+
+        .message-container::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: linear-gradient(90deg, #f48fb1, #d32f2f, #f48fb1);
+        }
+
+        .romantic-message {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.8rem;
+            line-height: 1.4;
+            color: #880e4f;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.1);
+        }
+
+        .message-subtext {
+            font-size: 1.3rem;
+            color: #c2185b;
+            font-style: italic;
+            margin-top: 20px;
+        }
+
+        .heart-btn {
+            background: linear-gradient(to right, #f48fb1, #d32f2f);
+            color: white;
+            border: none;
+            padding: 18px 45px;
+            font-size: 1.4rem;
+            font-family: 'Playfair Display', serif;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(212, 47, 47, 0.3);
+            margin-top: 20px;
+            letter-spacing: 1px;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .heart-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(212, 47, 47, 0.4);
+            background: linear-gradient(to right, #f06292, #c2185b);
+        }
+
+        .heart-btn:active {
+            transform: translateY(0);
+        }
+
+        .heart-btn i {
+            margin-right: 10px;
+            animation: heartbeat 1.5s infinite;
+        }
+
+        .love-letter {
+            display: none;
+            background-color: #fff;
+            border-radius: 20px;
+            padding: 40px;
+            max-width: 700px;
+            text-align: left;
+            box-shadow: 0 10px 30px rgba(181, 28, 28, 0.2);
+            margin-top: 30px;
+            animation: fadeIn 1.5s ease-out;
+            border: 2px solid #ffcdd2;
+            position: relative;
+        }
+
+        .love-letter.show {
+            display: block;
+        }
+
+        .letter-header {
+            text-align: center;
+            margin-bottom: 30px;
+            border-bottom: 1px dashed #f48fb1;
+            padding-bottom: 20px;
+        }
+
+        .letter-header h2 {
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.8rem;
+            color: #c2185b;
+        }
+
+        .letter-content {
+            font-size: 1.2rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .letter-content p {
+            margin-bottom: 20px;
+        }
+
+        .letter-signature {
+            text-align: right;
+            font-family: 'Dancing Script', cursive;
+            font-size: 2.2rem;
+            color: #d32f2f;
+            margin-top: 30px;
+        }
+
+        /* Love Story Button Styles */
+        .love-story-btn {
+            background: linear-gradient(to right, #c2185b, #880e4f);
+            color: white;
+            border: none;
+            padding: 16px 40px;
+            font-size: 1.3rem;
+            font-family: 'Playfair Display', serif;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(136, 14, 79, 0.3);
+            margin-top: 30px;
+            letter-spacing: 1px;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            animation: fadeInUp 1s ease-out;
+        }
+
+        .love-story-btn.show {
+            display: flex;
+        }
+
+        .love-story-btn:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(136, 14, 79, 0.4);
+            background: linear-gradient(to right, #ad1457, #6a1b9a);
+        }
+
+        .love-story-btn i {
+            margin-right: 10px;
+            transition: transform 0.5s ease;
+        }
+
+        .love-story-btn:hover i {
+            transform: rotate(360deg);
+        }
+
+        .button-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 15px;
+            width: 100%;
+            margin-top: 20px;
+        }
+
+        .music-controls {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            z-index: 100;
+            background-color: rgba(255, 255, 255, 0.9);
+            border-radius: 50%;
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .music-controls:hover {
+            transform: scale(1.1);
+        }
+
+        .music-controls i {
+            font-size: 1.8rem;
+            color: #d32f2f;
+        }
+
+        .footer {
+            text-align: center;
+            margin-top: 30px;
+            color: #c2185b;
+            font-size: 1rem;
+            animation: fadeIn 3s ease-out;
+        }
+
+        /* Floating hearts */
+        .hearts-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 1;
+        }
+
+        .heart {
+            position: absolute;
+            color: rgba(212, 47, 47, 0.7);
+            font-size: 20px;
+            animation: float 6s infinite ease-in-out;
+        }
+
+        /* Animations */
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+                opacity: 0.7;
+            }
+            50% {
+                transform: translateY(-100px) rotate(180deg);
+                opacity: 1;
+            }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes fadeInUp {
+            from { 
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to { 
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        @keyframes heartbeat {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.1); }
+        }
+
+        @keyframes pulse {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+
+        /* Responsive design */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 3rem;
+            }
+            
+            .romantic-message {
+                font-size: 2.2rem;
+            }
+            
+            .message-container {
+                padding: 25px;
+                margin: 0 15px 30px 15px;
+            }
+            
+            .love-letter {
+                padding: 25px;
+                margin: 0 15px;
+            }
+            
+            .heart-btn {
+                padding: 15px 35px;
+                font-size: 1.2rem;
+            }
+            
+            .love-story-btn {
+                padding: 14px 30px;
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .header h1 {
+                font-size: 2.5rem;
+            }
+            
+            .romantic-message {
+                font-size: 1.8rem;
+            }
+            
+            .letter-header h2 {
+                font-size: 2.2rem;
+            }
+            
+            .letter-content {
+                font-size: 1.1rem;
+            }
+            
+            .button-container {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Background hearts -->
+    <div class="hearts-container" id="hearts-container"></div>
+
+    <div class="container">
+        <header class="header">
+            <h1>Happy Valentine's Day, My Love</h1>
+            <p>You are the reason my heart beats with joy every single day</p>
+        </header>
+
+        <div class="message-container">
+            <div class="romantic-message">
+                "In your eyes, I found my home.<br>
+                In your heart, I found my love.<br>
+                In your soul, I found my mate."
+            </div>
+            <p class="message-subtext">You mean everything to me</p>
+            
+            <div class="button-container">
+                <button class="heart-btn" id="reveal-btn">
+                    <i class="fas fa-heart"></i> Open My Love Letter
+                </button>
+                
+                <!-- Love Story Button (Initially Hidden) -->
+                
+            </div>
+            
+            <div class="love-letter" id="love-letter">
+                <div class="letter-header">
+                    <h2>My Beautiful Princess, Melina</h2>
+                </div>
+                <div class="letter-content">
+                    <p>From the moment our paths crossed, my life has been painted with colors I never knew existed. Each day with you is a beautiful melody that my heart loves to replay.</p>
+                    
+                    <p>I cherish the way your eyes light up when you talk about the things you love, the sound of your laughter that fills my world with joy.</p>
+                    
+                    <p>On this special day dedicated to love, I want to remind you that my love for you grows stronger with each passing moment. You are my sunshine on cloudy days, my comfort in times of distress, and my greatest happiness in life.</p>
+                    
+                    <p>Thank you for being you, for loving me, and for making my world infinitely better just by being in it. I look forward to every tomorrow with you, to creating more beautiful memories together, and to loving you more with each day that passes.</p>
+                    
+                    <p>Forever and always, you have my heart.</p>
+                </div>
+                <div class="letter-signature">
+                    With all my love,<br>
+                    Yours forever<br>
+                    Mohammed
+                </div>
+                <button class="love-story-btn" id="love-story-btn">
+                    <i class="fas fa-book-heart"></i> Read Our Love Story
+                </button>
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Made with <i class="fas fa-heart" style="color: #d32f2f;"></i> for the most amazing person in my life, Melina</p>
+            <p>Valentine's Day 2026 - Eternity</p>
+        </div>
+    </div>
+
+    <!-- Music controls -->
+    <div class="music-controls" id="music-controls">
+        <i class="fas fa-music"></i>
+    </div>
+
+    <!-- Background music -->
+    <audio id="bg-music" loop>
+        <source src="https://disabled-plum-3p47hal6z8.edgeone.app/AudioCutter_She_waits_by_the_window__chillout___romanticsong__muisc.mp3" type="audio/mpeg">
+        Your browser does not support the audio element.
+    </audio>
+
+    <script>
+        // Create floating hearts
+        function createHearts() {
+            const container = document.getElementById('hearts-container');
+            const heartCount = 25;
+            
+            for (let i = 0; i < heartCount; i++) {
+                const heart = document.createElement('div');
+                heart.classList.add('heart');
+                heart.innerHTML = '<i class="fas fa-heart"></i>';
+                
+                // Random position and size
+                const size = Math.random() * 25 + 15;
+                const left = Math.random() * 100;
+                const delay = Math.random() * 5;
+                
+                heart.style.left = `${left}vw`;
+                heart.style.fontSize = `${size}px`;
+                heart.style.animationDelay = `${delay}s`;
+                
+                // Random color variation
+                const colors = ['#d32f2f', '#f48fb1', '#c2185b', '#ff80ab'];
+                const color = colors[Math.floor(Math.random() * colors.length)];
+                heart.style.color = color;
+                
+                container.appendChild(heart);
+            }
+        }
+
+        // Initialize floating hearts
+        document.addEventListener('DOMContentLoaded', function() {
+            createHearts();
+            
+            // Get elements
+            const revealBtn = document.getElementById('reveal-btn');
+            const loveLetter = document.getElementById('love-letter');
+            const loveStoryBtn = document.getElementById('love-story-btn');
+            const musicControls = document.getElementById('music-controls');
+            const bgMusic = document.getElementById('bg-music');
+            const musicIcon = musicControls.querySelector('i');
+            
+            // Toggle love letter visibility
+            revealBtn.addEventListener('click', function() {
+                loveLetter.classList.toggle('show');
+                
+                // Change button text
+                if (loveLetter.classList.contains('show')) {
+                    revealBtn.innerHTML = '<i class="fas fa-heart"></i> Close Love Letter';
+                    revealBtn.style.background = 'linear-gradient(to right, #c2185b, #880e4f)';
+                    
+                    // Show Love Story button
+                    loveStoryBtn.classList.add('show');
+                    
+                    // Add a little animation to the letter
+                    loveLetter.style.animation = 'fadeInUp 1s ease-out';
+                    
+                    // Add celebration animation
+                    celebrateLoveLetter();
+                } else {
+                    revealBtn.innerHTML = '<i class="fas fa-heart"></i> Open My Love Letter';
+                    revealBtn.style.background = 'linear-gradient(to right, #f48fb1, #d32f2f)';
+                    
+                    // Hide Love Story button
+                    loveStoryBtn.classList.remove('show');
+                }
+            });
+            
+            // Love Story Button Click Event
+            loveStoryBtn.addEventListener('click', function() {
+                // Create a sweet confirmation message
+                const confirmed = confirm("Do you want to read our beautiful love story? ❤️");
+                
+                if (confirmed) {
+                    // Redirect to external website (replace with your actual love story URL)
+                    window.open('https://www.example.com/our-love-story', '_blank');
+                    
+                    // You can replace the above URL with:
+                    // - A personal blog post about your relationship
+                    // - A photo album of your memories
+                    // - A Google Photos/Dropbox shared album
+                    // - A custom website with your love story
+                    
+                    // Add a sweet message
+                    alert("Opening our love story... Get ready for a journey through our beautiful memories! 💕");
+                }
+            });
+            
+            // Background music control
+            let musicPlaying = false;
+            
+            // Try to play music on user interaction (browser policy)
+            function playMusic() {
+                bgMusic.play().then(() => {
+                    musicPlaying = true;
+                    musicIcon.classList.remove('fa-music');
+                    musicIcon.classList.add('fa-volume-up');
+                }).catch(error => {
+                    console.log("Autoplay prevented. User interaction required.");
+                    musicPlaying = false;
+                });
+            }
+            
+            // Try to play on initial load (may be blocked by browser)
+            playMusic();
+            
+            // Music toggle on click
+            musicControls.addEventListener('click', function() {
+                if (musicPlaying) {
+                    bgMusic.pause();
+                    musicIcon.classList.remove('fa-volume-up');
+                    musicIcon.classList.add('fa-music');
+                    musicPlaying = false;
+                } else {
+                    bgMusic.play();
+                    musicIcon.classList.remove('fa-music');
+                    musicIcon.classList.add('fa-volume-up');
+                    musicPlaying = true;
+                }
+            });
+            
+            // Celebration function for when love letter is opened
+            function celebrateLoveLetter() {
+                // Create extra hearts for celebration
+                for (let i = 0; i < 15; i++) {
+                    setTimeout(() => {
+                        const container = document.getElementById('hearts-container');
+                        const heart = document.createElement('div');
+                        heart.classList.add('heart');
+                        heart.innerHTML = '<i class="fas fa-heart"></i>';
+                        
+                        // Random position and size
+                        const size = Math.random() * 30 + 20;
+                        const left = Math.random() * 100;
+                        
+                        heart.style.left = `${left}vw`;
+                        heart.style.fontSize = `${size}px`;
+                        heart.style.animation = 'float 5s ease-in-out';
+                        
+                        // Random color
+                        const colors = ['#d32f2f', '#f48fb1', '#c2185b', '#6a1b9a'];
+                        const color = colors[Math.floor(Math.random() * colors.length)];
+                        heart.style.color = color;
+                        
+                        container.appendChild(heart);
+                        
+                        // Remove heart after animation
+                        setTimeout(() => {
+                            if (heart.parentNode) {
+                                heart.remove();
+                            }
+                        }, 5000);
+                    }, i * 150);
+                }
+                
+                // Add a pulsing effect to the Love Story button
+                loveStoryBtn.style.animation = 'pulse 2s infinite';
+                
+                // Show a sweet notification
+                setTimeout(() => {
+                    const notification = document.createElement('div');
+                    notification.innerHTML = '💖 Now discover our love story! 💖';
+                    notification.style.cssText = `
+                        position: fixed;
+                        top: 20px;
+                        left: 50%;
+                        transform: translateX(-50%);
+                        background: linear-gradient(to right, #f48fb1, #c2185b);
+                        color: white;
+                        padding: 12px 24px;
+                        border-radius: 50px;
+                        font-family: 'Dancing Script', cursive;
+                        font-size: 1.5rem;
+                        z-index: 1000;
+                        box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+                        animation: fadeInUp 0.5s ease-out, fadeOut 0.5s ease-out 3s forwards;
+                    `;
+                    
+                    document.body.appendChild(notification);
+                    
+                    // Remove notification after animation
+                    setTimeout(() => {
+                        if (notification.parentNode) {
+                            notification.remove();
+                        }
+                    }, 3500);
+                }, 1000);
+            }
+            
+            // Add CSS for fadeOut animation
+            const style = document.createElement('style');
+            style.textContent = `
+                @keyframes fadeOut {
+                    from { opacity: 1; transform: translateX(-50%) translateY(0); }
+                    to { opacity: 0; transform: translateX(-50%) translateY(-20px); }
+                }
+            `;
+            document.head.appendChild(style);
+            
+            // Add a romantic message cycle
+            const messages = [
+                "Every moment with you feels like a beautiful dream.",
+                "Your love is the greatest gift I've ever received.",
+                "I fall in love with you more every single day.",
+                "You are my today and all of my tomorrows.",
+                "My heart is and always will be yours."
+            ];
+            
+            let messageIndex = 0;
+            const romanticMessage = document.querySelector('.romantic-message');
+            
+            // Change message every 8 seconds
+            setInterval(() => {
+                messageIndex = (messageIndex + 1) % messages.length;
+                romanticMessage.style.opacity = 0;
+                
+                setTimeout(() => {
+                    romanticMessage.textContent = `"${messages[messageIndex]}"`;
+                    romanticMessage.style.opacity = 1;
+                }, 500);
+            }, 8000);
+        });
+    </script>
+</body>
+</html>
