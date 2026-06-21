@@ -1,0 +1,779 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=yes" />
+  <title>💖 Happy Birthday Melina 💖</title>
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@400;700&family=Great+Vibes&family=Quicksand:wght@300;400;600&display=swap" rel="stylesheet" />
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    body {
+      min-height: 100vh;
+      background: #f7e9f0;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      font-family: 'Quicksand', sans-serif;
+      padding: 1rem;
+      transition: background 0.6s ease;
+      touch-action: manipulation;
+    }
+
+    /* ----- ENVELOPE SECTION ----- */
+    .envelope-wrapper {
+      height: 380px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 20px;
+      transition: opacity 0.8s ease, transform 0.8s ease;
+      width: 100%;
+    }
+
+    #envelope {
+      position: relative;
+      width: 280px;
+      height: 180px;
+      border-bottom-left-radius: 6px;
+      border-bottom-right-radius: 6px;
+      margin: 0 auto;
+      background-color: #d9534f;
+      box-shadow: 0 8px 30px rgba(180, 60, 80, 0.3);
+      transition: box-shadow 0.3s, transform 0.2s;
+      cursor: pointer;
+      touch-action: manipulation;
+    }
+
+    #envelope:active {
+      transform: scale(0.97);
+    }
+
+    .front {
+      position: absolute;
+      width: 0;
+      height: 0;
+      z-index: 3;
+    }
+
+    .flap {
+      border-left: 140px solid transparent;
+      border-right: 140px solid transparent;
+      border-bottom: 82px solid transparent;
+      border-top: 98px solid #d9534f;
+      transform-origin: top;
+      pointer-events: none;
+      transition: transform 0.4s ease;
+    }
+
+    .pocket {
+      border-left: 140px solid #f5a3a2;
+      border-right: 140px solid #f5a3a2;
+      border-bottom: 90px solid #ff6f61;
+      border-top: 90px solid transparent;
+      border-bottom-left-radius: 6px;
+      border-bottom-right-radius: 6px;
+    }
+
+    .letter {
+      position: relative;
+      background-color: #fffdf7;
+      width: 90%;
+      height: 90%;
+      margin: 5% auto;
+      border-radius: 10px;
+      box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+      font-family: 'Dancing Script', cursive;
+      overflow: hidden;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 6px 0;
+      transition: transform 0.4s 0.6s ease, z-index 0.6s;
+      z-index: 1;
+    }
+
+    .letter .words {
+      position: relative;
+      width: 90%;
+      margin: 2px auto;
+      text-align: center;
+      background-color: #ffe8ec;
+      border-radius: 30px;
+      padding: 4px 0;
+      box-shadow: 0 1px 6px rgba(220, 120, 140, 0.15);
+      font-weight: 500;
+      color: #5e2e3b;
+      font-size: 0.9rem;
+    }
+
+    .words.line1 {
+      width: 40%;
+      font-size: 0.75rem;
+      background-color: #ffd9e0;
+      color: #a13d4b;
+      font-weight: 700;
+    }
+
+    .words.line2 {
+      font-size: 1.1rem;
+      background: transparent;
+      box-shadow: none;
+      color: #a13d4b;
+      font-weight: 600;
+    }
+
+    .words.line3 {
+      font-size: 1rem;
+      background: transparent;
+      box-shadow: none;
+      color: #b34a5a;
+    }
+
+    .words.line4 {
+      font-size: 1.2rem;
+      background: transparent;
+      box-shadow: none;
+      color: #c0395a;
+      font-weight: 700;
+    }
+
+    .words.line5 {
+      font-size: 0.9rem;
+      background: transparent;
+      box-shadow: none;
+      color: #7a3b47;
+      font-style: italic;
+    }
+
+    /* envelope states */
+    #envelope.close .flap {
+      transform: rotateX(0deg);
+      transition: transform 0.4s 0.6s ease;
+      z-index: 5;
+    }
+
+    #envelope.open .flap {
+      transform: rotateX(180deg);
+      transition: transform 0.4s ease;
+      z-index: 1;
+    }
+
+    #envelope.close .letter {
+      transform: translateY(0px);
+      transition: transform 0.4s ease, z-index 1s;
+      z-index: 1;
+    }
+
+    #envelope.open .letter {
+      transform: translateY(-90px);
+      transition: transform 0.4s 0.6s ease, z-index 0.6s;
+      z-index: 2;
+    }
+
+    /* hearts floating */
+    .hearts {
+      position: absolute;
+      top: 60px;
+      left: 0;
+      right: 0;
+      z-index: 2;
+      pointer-events: none;
+    }
+
+    .heart {
+      position: absolute;
+      bottom: 0;
+      right: 10%;
+      pointer-events: none;
+    }
+
+    .heart:before,
+    .heart:after {
+      position: absolute;
+      content: "";
+      left: 50px;
+      top: 0;
+      width: 50px;
+      height: 80px;
+      background: #e60073;
+      border-radius: 50px 50px 0 0;
+      transform: rotate(-45deg);
+      transform-origin: 0 100%;
+      pointer-events: none;
+    }
+
+    .heart:after {
+      left: 0;
+      transform: rotate(45deg);
+      transform-origin: 100% 100%;
+    }
+
+    #envelope.close .heart {
+      opacity: 0;
+      animation: none;
+    }
+
+    .a1 {
+      left: 20%;
+      transform: scale(0.6);
+      opacity: 0;
+      animation: slideUp 4s linear 1, sideSway 2s ease-in-out 4 alternate;
+      animation-fill-mode: forwards;
+      animation-delay: 0.7s;
+    }
+    .a2 {
+      left: 55%;
+      transform: scale(1);
+      opacity: 0;
+      animation: slideUp 5s linear 1, sideSway 4s ease-in-out 2 alternate;
+      animation-fill-mode: forwards;
+      animation-delay: 0.7s;
+    }
+    .a3 {
+      left: 10%;
+      transform: scale(0.8);
+      opacity: 0;
+      animation: slideUp 7s linear 1, sideSway 2s ease-in-out 6 alternate;
+      animation-fill-mode: forwards;
+      animation-delay: 0.7s;
+    }
+
+    @keyframes slideUp {
+      0% { top: 0; opacity: 0.9; }
+      100% { top: -600px; opacity: 0; }
+    }
+    @keyframes sideSway {
+      0% { margin-left: 0px; }
+      100% { margin-left: 50px; }
+    }
+
+    /* ----- BUTTONS (mobile friendly) ----- */
+    .reset {
+      display: flex;
+      gap: 12px;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 10px;
+      width: 100%;
+      max-width: 400px;
+    }
+
+    .reset button {
+      font-family: 'Dancing Script', cursive;
+      font-weight: 700;
+      background: transparent;
+      border: 2px solid #d9534f;
+      border-radius: 40px;
+      color: #d9534f;
+      padding: 12px 24px;
+      font-size: 1.1rem;
+      letter-spacing: 1px;
+      transition: 0.2s;
+      cursor: pointer;
+      min-width: 100px;
+      flex: 1;
+      box-shadow: 0 4px 10px rgba(200, 70, 90, 0.1);
+      touch-action: manipulation;
+      -webkit-touch-callout: none;
+    }
+
+    .reset button:active {
+      transform: scale(0.95);
+      background: #d9534f;
+      color: #fff;
+    }
+
+    .footer-note {
+      margin-top: 20px;
+      font-size: 0.85rem;
+      color: #b36a7a;
+      font-family: 'Dancing Script', cursive;
+      background: rgba(255, 220, 230, 0.5);
+      padding: 6px 18px;
+      border-radius: 40px;
+      text-align: center;
+    }
+
+    /* ===== SECOND PAGE: FULL MESSAGE ===== */
+    .message-page {
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      max-width: 780px;
+      width: 100%;
+      background: rgba(255, 245, 248, 0.92);
+      backdrop-filter: blur(6px);
+      -webkit-backdrop-filter: blur(6px);
+      border-radius: 32px 16px 32px 16px;
+      padding: 2.5rem 1.5rem;
+      box-shadow: 0 20px 60px rgba(180, 60, 80, 0.25);
+      border: 1px solid rgba(255, 200, 210, 0.4);
+      animation: fadeInUp 0.7s ease;
+      margin: 0.5rem 0;
+      position: relative;
+    }
+
+    .message-page.active {
+      display: flex;
+    }
+
+    @keyframes fadeInUp {
+      0% { opacity: 0; transform: translateY(30px); }
+      100% { opacity: 1; transform: translateY(0); }
+    }
+
+    .message-page h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.8rem;
+      color: #b43b4b;
+      margin-bottom: 0.3rem;
+      text-shadow: 0 4px 12px rgba(200, 70, 90, 0.2);
+      text-align: center;
+      line-height: 1.2;
+    }
+
+    .message-page .sub-heart {
+      font-size: 1.8rem;
+      color: #d9534f;
+      margin-bottom: 1rem;
+    }
+
+    .message-page .message-body {
+      font-family: 'Quicksand', sans-serif;
+      font-size: 1.05rem;
+      line-height: 1.7;
+      color: #3d2a30;
+      background: rgba(255, 240, 243, 0.5);
+      padding: 1.5rem 1.2rem;
+      border-radius: 30px 10px 30px 10px;
+      border-left: 4px solid #e6838a;
+      box-shadow: inset 0 1px 10px rgba(200, 70, 90, 0.05);
+      width: 100%;
+      text-align: center;
+    }
+
+    .message-body p {
+      margin-bottom: 1rem;
+    }
+
+    .message-body p:last-child {
+      margin-bottom: 0;
+    }
+
+    .message-page .signature {
+      margin-top: 1.5rem;
+      font-family: 'Great Vibes', cursive;
+      font-size: 2.2rem;
+      color: #9f3e4b;
+      text-align: right;
+      width: 100%;
+      padding-right: 0.5rem;
+      border-top: 2px dashed #eac2c9;
+      padding-top: 1rem;
+    }
+
+    .back-btn {
+      margin-top: 1.8rem;
+      background: transparent;
+      border: 2px solid #b34a5a;
+      border-radius: 40px;
+      color: #b34a5a;
+      padding: 12px 30px;
+      font-family: 'Dancing Script', cursive;
+      font-size: 1.2rem;
+      font-weight: 700;
+      cursor: pointer;
+      transition: 0.2s;
+      box-shadow: 0 4px 12px rgba(200, 70, 90, 0.1);
+      touch-action: manipulation;
+      width: 100%;
+      max-width: 280px;
+    }
+
+    .back-btn:active {
+      transform: scale(0.95);
+      background: #b34a5a;
+      color: #fff;
+    }
+
+    /* hide envelope when message is active */
+    .hidden-envelope .envelope-wrapper,
+    .hidden-envelope .reset,
+    .hidden-envelope .footer-note {
+      display: none;
+    }
+
+    /* ===== MOBILE OPTIMIZATIONS ===== */
+    @media (max-width: 480px) {
+      body {
+        padding: 0.8rem;
+        justify-content: flex-start;
+        padding-top: 1.5rem;
+      }
+
+      .envelope-wrapper {
+        height: 340px;
+        margin-bottom: 12px;
+      }
+
+      #envelope {
+        width: 230px;
+        height: 150px;
+      }
+
+      .flap {
+        border-left-width: 115px;
+        border-right-width: 115px;
+        border-top-width: 82px;
+        border-bottom-width: 68px;
+      }
+
+      .pocket {
+        border-left-width: 115px;
+        border-right-width: 115px;
+        border-bottom-width: 75px;
+        border-top-width: 75px;
+      }
+
+      .letter .words {
+        font-size: 0.8rem;
+        padding: 3px 0;
+      }
+
+      .words.line1 {
+        font-size: 0.65rem;
+        width: 45%;
+      }
+      .words.line2 {
+        font-size: 0.95rem;
+      }
+      .words.line3 {
+        font-size: 0.85rem;
+      }
+      .words.line4 {
+        font-size: 1rem;
+      }
+      .words.line5 {
+        font-size: 0.8rem;
+      }
+
+      #envelope.open .letter {
+        transform: translateY(-75px);
+      }
+
+      .reset button {
+        font-size: 1rem;
+        padding: 10px 16px;
+        min-width: 80px;
+      }
+
+      .message-page {
+        padding: 1.8rem 1rem;
+        border-radius: 24px 12px 24px 12px;
+        margin: 0.2rem 0;
+      }
+
+      .message-page h1 {
+        font-size: 2.2rem;
+      }
+
+      .message-page .message-body {
+        font-size: 0.95rem;
+        padding: 1.2rem 1rem;
+        line-height: 1.6;
+      }
+
+      .message-page .signature {
+        font-size: 1.8rem;
+        margin-top: 1.2rem;
+        padding-top: 0.8rem;
+      }
+
+      .back-btn {
+        font-size: 1rem;
+        padding: 10px 20px;
+        max-width: 240px;
+      }
+
+      .footer-note {
+        font-size: 0.75rem;
+        padding: 4px 14px;
+        margin-top: 14px;
+      }
+
+      .hearts {
+        top: 40px;
+      }
+      .heart:before,
+      .heart:after {
+        width: 35px;
+        height: 60px;
+        left: 35px;
+      }
+      .heart:after {
+        left: 0;
+      }
+      .a1 {
+        left: 15%;
+        transform: scale(0.5);
+      }
+      .a2 {
+        left: 60%;
+        transform: scale(0.8);
+      }
+      .a3 {
+        left: 5%;
+        transform: scale(0.6);
+      }
+      @keyframes slideUp {
+        0% { top: 0; opacity: 0.9; }
+        100% { top: -450px; opacity: 0; }
+      }
+    }
+
+    @media (max-width: 380px) {
+      #envelope {
+        width: 190px;
+        height: 125px;
+      }
+      .flap {
+        border-left-width: 95px;
+        border-right-width: 95px;
+        border-top-width: 68px;
+        border-bottom-width: 56px;
+      }
+      .pocket {
+        border-left-width: 95px;
+        border-right-width: 95px;
+        border-bottom-width: 62px;
+        border-top-width: 62px;
+      }
+      #envelope.open .letter {
+        transform: translateY(-60px);
+      }
+      .letter .words {
+        font-size: 0.7rem;
+      }
+      .words.line2 {
+        font-size: 0.85rem;
+      }
+      .words.line4 {
+        font-size: 0.9rem;
+      }
+      .message-page h1 {
+        font-size: 1.8rem;
+      }
+      .message-page .message-body {
+        font-size: 0.85rem;
+        padding: 1rem 0.8rem;
+      }
+    }
+
+    /* Prevent zoom on double tap */
+    button,
+    #envelope {
+      touch-action: manipulation;
+    }
+  </style>
+</head>
+<body>
+  <!-- ===== ENVELOPE SECTION ===== -->
+  <div id="envelopeSection">
+    <div class="envelope-wrapper">
+      <div id="envelope" class="close">
+        <div class="front flap"></div>
+        <div class="front pocket"></div>
+        <div class="letter">
+          <div class="words line1">💗 To: Melina</div>
+          <div class="words line2">Happy Birthday, my love!</div>
+          <div class="words line3">You make every day feel like</div>
+          <div class="words line4">a beautiful dream ✨</div>
+          <div class="words line5">— forever yours</div>
+        </div>
+        <div class="hearts">
+          <div class="heart a1"></div>
+          <div class="heart a2"></div>
+          <div class="heart a3"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="reset">
+      <button id="open">💌 Open</button>
+      <button id="reset">🔒 Close</button>
+    </div>
+    <div class="footer-note">❤️ love you</div>
+  </div>
+
+  <!-- ===== SECOND PAGE: FULL BIRTHDAY MESSAGE ===== -->
+  <div id="messagePage" class="message-page">
+    <h1>Happy Birthday, My Love ❤️</h1>
+    <div class="sub-heart">✨💖✨</div>
+    <div class="message-body">
+      <p>Today is all about celebrating you and the happiness you bring into my life. Thank you for your love, your kindness, and for making every day brighter. Every moment we share becomes a beautiful memory that I will always treasure.</p>
+      <p>May this year bring you endless joy, success, and all the wonderful things you deserve. No matter where life takes us, I promise to stand by your side, support you, and create many more unforgettable memories together.</p>
+      <p>Thank you for being my partner, my best friend,my wife and the love of my life.</p>
+      <p style="font-weight: 600; color: #a13d4b;">Happy Birthday, my beautiful wife. I love you today, tomorrow, and always.</p>
+    </div>
+    <div class="signature">— Melina's ❤️</div>
+    <button class="back-btn" id="backToEnvelope">💕 Back to envelope</button>
+  </div>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+  <script>
+    $(document).ready(function () {
+      const envelope = $('#envelope');
+      const btnOpen = $('#open');
+      const btnReset = $('#reset');
+      const messagePage = $('#messagePage');
+      const envelopeSection = $('#envelopeSection');
+
+      let isMessageVisible = false;
+      let isEnvelopeOpen = false;
+
+      // ----- open envelope (first step) -----
+      function openEnvelope() {
+        if (!isEnvelopeOpen) {
+          envelope.removeClass('close').addClass('open');
+          isEnvelopeOpen = true;
+        }
+      }
+
+      function closeEnvelope() {
+        envelope.removeClass('open').addClass('close');
+        isEnvelopeOpen = false;
+      }
+
+      // ----- show full message (second step) -----
+      function showFullMessage() {
+        // make sure envelope is open first
+        if (!isEnvelopeOpen) {
+          openEnvelope();
+          // wait a bit then show message
+          setTimeout(function () {
+            showMessagePage();
+          }, 500);
+        } else {
+          showMessagePage();
+        }
+      }
+
+      function showMessagePage() {
+        envelopeSection.addClass('hidden-envelope');
+        messagePage.addClass('active');
+        $('body').css('background', '#fce9ef');
+        isMessageVisible = true;
+      }
+
+      function hideMessagePage() {
+        messagePage.removeClass('active');
+        envelopeSection.removeClass('hidden-envelope');
+        $('body').css('background', '#f7e9f0');
+        isMessageVisible = false;
+        // close envelope when going back
+        closeEnvelope();
+      }
+
+      // ===== CLICK HANDLERS (mobile optimized) =====
+
+      // Envelope click: first tap opens envelope, second tap shows full message
+      envelope.on('click', function (e) {
+        e.stopPropagation();
+        e.preventDefault();
+
+        // If message is already visible, do nothing (user should use back button)
+        if (isMessageVisible) return;
+
+        // If envelope is closed, open it (step 1)
+        if (!isEnvelopeOpen) {
+          openEnvelope();
+          // Show a subtle hint that they can tap again
+          return;
+        }
+
+        // If envelope is already open, show full message (step 2)
+        if (isEnvelopeOpen && !isMessageVisible) {
+          showFullMessage();
+        }
+      });
+
+      // Open button: same behavior - first open, then show message
+      btnOpen.on('click', function (e) {
+        e.stopPropagation();
+        if (isMessageVisible) return;
+
+        if (!isEnvelopeOpen) {
+          openEnvelope();
+        } else {
+          showFullMessage();
+        }
+      });
+
+      // Close button: close envelope (and hide message if visible)
+      btnReset.on('click', function (e) {
+        e.stopPropagation();
+        if (isMessageVisible) {
+          hideMessagePage();
+        } else {
+          closeEnvelope();
+        }
+      });
+
+      // Back button from message page
+      $('#backToEnvelope').on('click', function () {
+        hideMessagePage();
+      });
+
+      // Also support swipe down or simple tap on message page to go back? 
+      // We'll keep it simple with the back button.
+      // But we can add a tap on the background (optional)
+      messagePage.on('click', function (e) {
+        // If user taps on the message page background (not on a button or text)
+        // we could do nothing, but we want to keep back button only
+        // to avoid accidental closes.
+      });
+
+      // Prevent double-tap zoom on mobile for buttons
+      $('button, #envelope').on('touchend', function (e) {
+        // just prevent default if needed, but we keep it
+      });
+
+      // Initial state: close envelope
+      closeEnvelope();
+
+      // Show a small hint after a moment
+      setTimeout(function () {
+        if (!isEnvelopeOpen && !isMessageVisible) {
+          // subtle pulse effect (optional)
+          envelope.css('animation', 'pulse 1.5s ease 2');
+          setTimeout(function () {
+            envelope.css('animation', '');
+          }, 3000);
+        }
+      }, 1000);
+    });
+
+    // Add pulse animation for hint
+    const style = document.createElement('style');
+    style.textContent = `
+      @keyframes pulse {
+        0% { transform: scale(1); }
+        50% { transform: scale(1.04); box-shadow: 0 8px 40px rgba(200,70,90,0.5); }
+        100% { transform: scale(1); }
+      }
+    `;
+    document.head.appendChild(style);
+  </script>
+</body>
+</html>
